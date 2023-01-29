@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class BudgetTester
+{
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        
+        //Prompts user for initial balance
+        System.out.println("Enter your balance: ");
+        double balance = input.nextDouble();
+        
+        //Prompts user for how many items they bought
+        System.out.println("How many items did you buy?");
+        int amountOfItems = input.nextInt();
+        
+        //Prices of each item are stored in array
+        double[] prices = new double[amountOfItems];
+        
+        //for loop is used to store the prices in the array
+        for(int i = 0; i < amountOfItems; i++)
+        {
+            System.out.println("How much did item " + (i+1) + " cost?");
+            prices[i] = input.nextDouble();
+        }
+        
+        //Total Spent is calculated by adding up all of the item prices and subtracting them from the initial balance to find amount left
+        double totalSpent = 0;
+        for(int i = 0; i < prices.length; i++)
+        {
+            totalSpent += prices[i];
+        }
+        
+        double amountLeft = balance - totalSpent;
+        
+        System.out.println("You have: $" + amountLeft + " left.");
+        
+       
+    }
+}
